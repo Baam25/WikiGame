@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Kanna
 
 class APIManager: NSObject, NSURLSessionDelegate {
     
@@ -15,7 +16,7 @@ class APIManager: NSObject, NSURLSessionDelegate {
     var Url: NSURL?
     var request: NSMutableURLRequest?
     var response: NSHTTPURLResponse?
-    var URL:String = "http://www.google.com"
+    var URL:String = "http://tools.wikimedia.de/~dapete/random/enwiki-featured.php"
     var method = "GET"
     var headers:[String:String]? = nil
     var body:NSData? = nil
@@ -44,24 +45,26 @@ class APIManager: NSObject, NSURLSessionDelegate {
     }
     
     
-    func httpRequest(completionHandler: (String, NSHTTPURLResponse?) -> Void) {
+    func httpRequest(completionHandler: (XPathObject?, NSHTTPURLResponse?) -> Void) {
         
         
         Alamofire.request(request!).responseString { (response) in
             
-            self.response = response.response
-            self.timeLine = response.timeline
-            completionHandler(response.result.value ?? "No data recieved", response.response)
+            let doc = HTML(html: response.result.value ?? "" , encoding: NSUTF8StringEncoding)
+            let text = doc?.css("#mw-content-text").first!.css("p")
+            
+            completionHandler(text, response.response)
         }
         
         
     }
     
+    
     func reset() {
         
         session = nil
         Url = nil
-        URL = "http://www.google.com"
+        URL = "http://tools.wikimedia.de/~dapete/random/enwiki-featured.php"
         request = nil
         response = nil
         method = "GET"

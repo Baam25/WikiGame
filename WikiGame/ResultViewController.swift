@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import SAConfettiView
 
 class ResultViewController: UIViewController {
 
+    @IBOutlet weak var scoreLabel: UILabel!
+    var score = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        checkScores()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +25,23 @@ class ResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func showConfetti() {
+        let confettiView = SAConfettiView(frame: self.view.bounds)
+        confettiView.type = .Confetti
+        self.view.addSubview(confettiView)
+        confettiView.startConfetti()
     }
-    */
-
+    
+    func checkScores() {
+        scoreLabel.text = "\(score)/10"
+        if score == 10 {
+            
+            scoreLabel.textColor = UIColor(red: 0, green: 128/255, blue: 0, alpha: 1)
+            showConfetti()
+        }
+        else{
+            scoreLabel.textColor = UIColor.redColor()
+        }
+    }
+   
 }
