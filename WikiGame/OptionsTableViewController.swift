@@ -15,7 +15,7 @@ protocol answerSelected:class {
 
 class OptionsTableViewController: UITableViewController {
 
-    var dataSource = []
+    var dataSource = [""]
     
     weak var delegate:answerSelected?
     override func viewDidLoad() {
@@ -50,14 +50,14 @@ class OptionsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("option", forIndexPath: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = dataSource[indexPath.row] as? String
+        cell.textLabel?.text = dataSource[indexPath.row]
 
         return cell
     }
  
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-       delegate?.passAnswerValue(dataSource[indexPath.row] as! String)
+       delegate?.passAnswerValue(dataSource[indexPath.row] )
         self.navigationController?.popViewControllerAnimated(true)
         
     }

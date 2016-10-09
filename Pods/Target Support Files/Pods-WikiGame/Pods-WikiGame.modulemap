@@ -1,0 +1,6 @@
+framework module Pods_WikiGame {
+  umbrella header "Pods-WikiGame-umbrella.h"
+
+  export *
+  module * { export * }
+}
