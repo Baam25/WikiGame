@@ -51,7 +51,10 @@ class APIManager: NSObject, NSURLSessionDelegate {
         Alamofire.request(request!).responseString { (response) in
             
             let doc = HTML(html: response.result.value ?? "" , encoding: NSUTF8StringEncoding)
-            let text = doc?.css("#mw-content-text").first!.css("p")
+            guard let text = doc?.css("#mw-content-text").first?.css("p") else{
+                completionHandler(nil,response.response)
+                return
+            }
             
             completionHandler(text, response.response)
         }

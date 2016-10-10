@@ -9,11 +9,15 @@
 import UIKit
 import SAConfettiView
 
+protocol RestartWikiGame:class {
+    func reset()
+}
+
 class ResultViewController: UIViewController {
 
     @IBOutlet weak var scoreLabel: UILabel!
     var score = 0
-    
+    weak var delegate: RestartWikiGame?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,5 +47,12 @@ class ResultViewController: UIViewController {
             scoreLabel.textColor = UIColor.redColor()
         }
     }
+    
+    @IBAction func restartGame(sender: AnyObject) {
+        
+        delegate?.reset()
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
    
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		70A078104F69243E06469F16 /* Pods_WikiGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8675CD4615A0DC8D1D205110 /* Pods_WikiGame.framework */; };
+		A932EAB71DAC0B6C00C41A6F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932EAB61DAC0B6C00C41A6F /* Array+Extension.swift */; };
+		A932EAB91DAC0EA100C41A6F /* TextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A932EAB81DAC0EA100C41A6F /* TextUtils.swift */; };
 		A96194E31DA8F72000238FAE /* OptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96194E21DA8F72000238FAE /* OptionsTableViewController.swift */; };
 		A99EE3A61DA2B115006A741B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99EE3A51DA2B115006A741B /* AppDelegate.swift */; };
 		A99EE3A81DA2B115006A741B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99EE3A71DA2B115006A741B /* ViewController.swift */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		75742543C44B04E287D03BF2 /* Pods-WikiGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WikiGame.release.xcconfig"; path = "Pods/Target Support Files/Pods-WikiGame/Pods-WikiGame.release.xcconfig"; sourceTree = "<group>"; };
 		8675CD4615A0DC8D1D205110 /* Pods_WikiGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WikiGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A932EAB61DAC0B6C00C41A6F /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		A932EAB81DAC0EA100C41A6F /* TextUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextUtils.swift; sourceTree = "<group>"; };
 		A96194E21DA8F72000238FAE /* OptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTableViewController.swift; sourceTree = "<group>"; };
 		A99EE3A21DA2B115006A741B /* WikiGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99EE3A51DA2B115006A741B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				A99EE3AC1DA2B115006A741B /* WikiGame.xcdatamodeld */,
 				A96194E21DA8F72000238FAE /* OptionsTableViewController.swift */,
 				A9CA93B01DAA0BFD00AFD5B8 /* ResultViewController.swift */,
+				A932EAB61DAC0B6C00C41A6F /* Array+Extension.swift */,
+				A932EAB81DAC0EA100C41A6F /* TextUtils.swift */,
 			);
 			path = WikiGame;
 			sourceTree = "<group>";
@@ -223,10 +229,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A932EAB91DAC0EA100C41A6F /* TextUtils.swift in Sources */,
 				A96194E31DA8F72000238FAE /* OptionsTableViewController.swift in Sources */,
 				A99EE3BB1DA2C15B006A741B /* APIManager.swift in Sources */,
 				A99EE3A81DA2B115006A741B /* ViewController.swift in Sources */,
 				A99EE3AE1DA2B115006A741B /* WikiGame.xcdatamodeld in Sources */,
+				A932EAB71DAC0B6C00C41A6F /* Array+Extension.swift in Sources */,
 				A99EE3A61DA2B115006A741B /* AppDelegate.swift in Sources */,
 				A9CA93B11DAA0BFD00AFD5B8 /* ResultViewController.swift in Sources */,
 			);

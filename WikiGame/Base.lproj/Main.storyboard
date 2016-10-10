@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="5VO-kN-gDT">
-                                <rect key="frame" x="24" y="98" width="556" height="485"/>
+                                <rect key="frame" x="20" y="98" width="560" height="485"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="434" translatesAutoresizingMaskIntoConstraints="NO" id="Gso-ji-Drz">
-                                        <rect key="frame" x="0.0" y="0.0" width="556" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                         <subviews>
                                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOO-9r-zg3">
-                                                <rect key="frame" x="0.0" y="0.0" width="61" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="63" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="61" id="bi0-i2-JP3"/>
                                                 </constraints>
@@ -36,7 +36,7 @@
                                                 </connections>
                                             </button>
                                             <button contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8b-XN-ktD">
-                                                <rect key="frame" x="495" y="0.0" width="61" height="30"/>
+                                                <rect key="frame" x="497" y="0.0" width="63" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47" id="YLQ-Ad-PXY"/>
                                                 </constraints>
@@ -49,15 +49,17 @@
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ddX-V4-2W1">
-                                        <rect key="frame" x="0.0" y="80" width="556" height="405"/>
+                                        <rect key="frame" x="0.0" y="80" width="560" height="405"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                                     </textView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Gso-ji-Drz" firstAttribute="leading" secondItem="5VO-kN-gDT" secondAttribute="leading" id="Dq1-QK-lJs"/>
+                                    <constraint firstAttribute="trailing" secondItem="ddX-V4-2W1" secondAttribute="trailing" id="a0V-R1-myY"/>
+                                    <constraint firstItem="ddX-V4-2W1" firstAttribute="leading" secondItem="5VO-kN-gDT" secondAttribute="leading" id="a14-wW-QuM"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -65,7 +67,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="5VO-kN-gDT" secondAttribute="trailing" id="AFt-Sk-NKe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5VO-kN-gDT" secondAttribute="bottom" constant="17" id="S5I-zr-fT2"/>
-                            <constraint firstItem="5VO-kN-gDT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="Uuo-Aw-Ze1"/>
+                            <constraint firstItem="5VO-kN-gDT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Uuo-Aw-Ze1"/>
                             <constraint firstItem="5VO-kN-gDT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="34" id="bBK-5i-Vtb"/>
                         </constraints>
                     </view>
@@ -99,7 +101,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFX-qW-xMV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="10/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFX-qW-xMV">
                                         <rect key="frame" x="257" y="75" width="46" height="25"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -112,6 +114,9 @@
                                             <constraint firstAttribute="width" constant="32" id="w5T-Ld-qSq"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="replay"/>
+                                        <connections>
+                                            <action selector="restartGame:" destination="UGh-v0-daO" eventType="touchUpInside" id="s03-Ae-NL6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -181,6 +186,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mHg-iP-nDF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
