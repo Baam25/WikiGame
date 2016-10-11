@@ -29,13 +29,14 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                                     </textView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.8860371225" green="0.89024910850000005" blue="0.90860061849999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ddX-V4-2W1" secondAttribute="trailing" id="GLV-Nq-pLy"/>
                                     <constraint firstItem="ddX-V4-2W1" firstAttribute="leading" secondItem="5VO-kN-gDT" secondAttribute="leading" id="tWZ-fB-fGB"/>
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.8860371225" green="0.89024910850000005" blue="0.90860061849999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="5VO-kN-gDT" secondAttribute="trailing" id="AFt-Sk-NKe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5VO-kN-gDT" secondAttribute="bottom" constant="17" id="S5I-zr-fT2"/>

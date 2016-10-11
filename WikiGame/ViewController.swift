@@ -247,7 +247,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
             isShowingAnswers = true
         }
         else if isShowingAnswers {
-            alertController.showSuccess("Thank You for taking the test", subTitle: "👋").setDismissBlock({ 
+            alertController.showSuccess("😁", subTitle: "Thank You for taking the test👋").setDismissBlock({
                 self.reset()
             })
         }
@@ -272,6 +272,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
                 alertController.showSuccess("Your Total Score is", subTitle: "\(score)").setDismissBlock({
                         self.confettiView.stopConfetti()
                         self.confettiView.removeFromSuperview()
+                    self.submitButton.enabled = false
                 })
 
             }
@@ -279,7 +280,9 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
             
                 alertController.addButton("Replay", target: self, selector: #selector(ViewController.reset))
                 alertController.addButton("Evaluate", target: self, selector: #selector(ViewController.evaluate))
-                alertController.showWarning("Your Total Score is", subTitle: "\(score)")
+                alertController.showWarning("Your Total Score is", subTitle: "\(score)").setDismissBlock({ 
+                    self.submitButton.enabled = false
+                })
             
             }
         }
