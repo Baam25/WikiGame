@@ -15,6 +15,8 @@ import SAConfettiView
 class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelected, RestartWikiGame {
 
     @IBOutlet weak var wikiText: UITextView!
+    @IBOutlet weak var submitButton: UIBarButtonItem!
+    
     var generator:AnyGenerator<XMLElement>?
     var tex = ""
     var grammer = [String:String]()
@@ -24,6 +26,10 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
     var selectedButton: UIButton?
     var shuffledOptions = [""]
     var originalTex = ""
+    var isEvaluationMode = false
+    var isSubmitted = false
+    var isShowingAnswers = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -179,7 +185,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
             
                 let placeHolderButton = UIButton(frame: rect1)
                 
-                placeHolderButton.titleLabel!.font = UIFont(name: "Helvetica Neue", size: 16.0)
+                
                 placeHolderButton.titleLabel?.adjustsFontSizeToFitWidth = true
                 placeHolderButton.tag = count+1
                 placeHolderButton.addTarget(self, action: #selector(ViewController.showOptions(_:)), forControlEvents: .TouchUpInside)
@@ -224,37 +230,59 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
     
     //MARK:- Submit the answers
     @IBAction func submitAnswers(sender: AnyObject) {
-        
-       
-        var score = 0
-        for i in 0..<keyWords.count {
-            let but = self.view.viewWithTag(i+1) as? UIButton
-            if but?.titleLabel?.text == keyWords[i] {
-                score += 1
-            }
-            
-        }
-        
         let alertController = SCLAlertView()
-        if score == 10 {
-            self.showConfetti()
         
-            
-            alertController.addButton("Replay", target: self, selector: #selector(ViewController.reset))
-            
-            alertController.showSuccess("Your Total Score is", subTitle: "\(score)").setDismissBlock({
-                    self.confettiView.stopConfetti()
-                    self.confettiView.removeFromSuperview()
+        if isEvaluationMode && isSubmitted{
+            for i in 0..<keyWords.count {
+                let but = self.view.viewWithTag(i+1) as? UIButton
+                if but?.titleLabel?.text != keyWords[i] {
+                    but?.setTitle(keyWords[i], forState: .Normal)
+                    but?.backgroundColor = UIColor.greenColor()
+                    but?.setTitleColor(UIColor.blackColor(), forState: .Normal)
+                }
+                
+            }
+            submitButton.title = "Done"
+            isEvaluationMode = false
+            isShowingAnswers = true
+        }
+        else if isShowingAnswers {
+            alertController.showSuccess("Thank You for taking the test", subTitle: "👋").setDismissBlock({ 
+                self.reset()
             })
-
         }
         else{
+            isSubmitted = true
+            var score = 0
+            for i in 0..<keyWords.count {
+                let but = self.view.viewWithTag(i+1) as? UIButton
+                if but?.titleLabel?.text == keyWords[i] {
+                    score += 1
+                }
             
-            alertController.addButton("Replay", target: self, selector: #selector(ViewController.reset))
-            alertController.showWarning("Your Total Score is", subTitle: "\(score)")
+            }
+        
             
+            if score == 10 {
+                self.showConfetti()
+        
+            
+                alertController.addButton("Replay", target: self, selector: #selector(ViewController.reset))
+                alertController.addButton("Evaluate", target: self, selector: #selector(ViewController.evaluate))
+                alertController.showSuccess("Your Total Score is", subTitle: "\(score)").setDismissBlock({
+                        self.confettiView.stopConfetti()
+                        self.confettiView.removeFromSuperview()
+                })
+
+            }
+            else{
+            
+                alertController.addButton("Replay", target: self, selector: #selector(ViewController.reset))
+                alertController.addButton("Evaluate", target: self, selector: #selector(ViewController.evaluate))
+                alertController.showWarning("Your Total Score is", subTitle: "\(score)")
+            
+            }
         }
-       
         
     }
     
@@ -269,11 +297,27 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
         keyWords = [""]
         prev = ""
         shuffledOptions = [""]
+        isEvaluationMode = false
+        isSubmitted = false
+        isShowingAnswers = false
         
         for i in 1...10 {
             wikiText.viewWithTag(i)?.removeFromSuperview()
         }
 
+    }
+    
+    func evaluate() {
+        
+        isEvaluationMode = true
+        submitButton.title = "Show Answers"
+        for i in 0..<keyWords.count {
+            let but = self.view.viewWithTag(i+1) as? UIButton
+            if but?.titleLabel?.text != keyWords[i] {
+                but?.backgroundColor = UIColor.redColor()
+            }
+            
+        }
     }
     
     //MARK:- Confetti View

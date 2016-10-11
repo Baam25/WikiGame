@@ -51,6 +51,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="submitButton" destination="xCl-Es-j0l" id="pVI-g8-zvq"/>
                         <outlet property="wikiText" destination="ddX-V4-2W1" id="QWe-9F-AjB"/>
                     </connections>
                 </viewController>
