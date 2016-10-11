@@ -115,6 +115,8 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
     
     //MARK:- Function to handle rotation of device
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        
+        resetVariables()
         wikiText.text = originalTex
         tex = originalTex
         fill(tex, gen: self.generator)
@@ -280,10 +282,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
             
                 alertController.addButton("Replay", target: self, selector: #selector(ViewController.reset))
                 alertController.addButton("Evaluate", target: self, selector: #selector(ViewController.evaluate))
-                alertController.showWarning("Your Total Score is", subTitle: "\(score)").setDismissBlock({ 
-                    self.submitButton.enabled = false
-                })
-            
+                alertController.showWarning("Your Total Score is", subTitle: "\(score)")
             }
         }
         
@@ -293,8 +292,14 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
     //MARK:- Resetting the game
     func reset() {
         
-        submitButton.enabled = true
+        resetVariables()
         retrieveWiki()
+        
+    }
+    
+    func resetVariables() {
+        submitButton.enabled = true
+        submitButton.title = "Submit"
         tex = ""
         grammer = [String:String]()
         TextUtils.reset()
@@ -310,9 +315,8 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
         }
 
     }
-    
     func evaluate() {
-        submitButton.enabled = true
+        //submitButton.enabled = true
         isEvaluationMode = true
         submitButton.title = "Show Answers"
         for i in 0..<keyWords.count {
