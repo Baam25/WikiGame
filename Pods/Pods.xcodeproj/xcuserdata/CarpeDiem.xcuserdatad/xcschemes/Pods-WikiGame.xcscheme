@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '443DC6DFC8829F14FC3D324B'
+               BlueprintIdentifier = '5FF58629AA1D3D689457727C'
                BlueprintName = 'Pods-WikiGame'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_WikiGame.framework'>

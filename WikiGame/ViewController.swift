@@ -9,6 +9,8 @@
 import UIKit
 import NVActivityIndicatorView
 import Kanna
+import SCLAlertView
+import SAConfettiView
 
 class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelected, RestartWikiGame {
 
@@ -16,7 +18,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
     var generator:AnyGenerator<XMLElement>?
     var tex = ""
     var grammer = [String:String]()
-    
+    var confettiView:SAConfettiView!
     var keyWords = [""]
     var prev = ""
     var selectedButton: UIButton?
@@ -24,14 +26,12 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
-        
+
         APIManager.sharedInstance.setUp() //----> Setting up the APIManager
         
         retrieveWiki()   //----> API call to retrieve some random data from Wikipedia
         
-        
+        confettiView = SAConfettiView(frame: self.view.bounds)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,6 +39,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
         // Dispose of any resources that can be recreated.
     }
 
+    
     func retrieveWiki() {
         
         startAnimating(CGSize(width: 40,height: 40), message: "Loading", type: .CubeTransition, color: UIColor.cyanColor(), padding: 0, displayTimeThreshold: 0, minimumDisplayTime: 0)
@@ -59,8 +60,9 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
             if let str = (self.generator?.next()?.text) {
                 self.tex = str
                 self.wikiText.text = self.tex.stringByReplacingOccurrencesOfString("\n", withString: " ")
-                self.fill(self.tex, gen: self.generator)
                 self.wikiText.hidden = false
+                self.fill(self.tex, gen: self.generator)
+                
                 
             }
             else{
@@ -97,6 +99,9 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
             self.wikiText.text = self.tex
             fill(tex, gen: gen)
         }
+        else{
+            categorizeWords()
+        }
     }
     
     //MARK:- Function to handle rotation of device
@@ -109,7 +114,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
     
     //MARK:- Function to replace random words with blank
     
-    @IBAction func categorizeWords(sender: AnyObject) {
+    func categorizeWords() {
         
         
         
@@ -216,8 +221,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
     //MARK:- Submit the answers
     @IBAction func submitAnswers(sender: AnyObject) {
         
-        let resultController = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("result") as? ResultViewController
-        resultController?.delegate = self
+       
         var score = 0
         for i in 0..<keyWords.count {
             let but = self.view.viewWithTag(i+1) as? UIButton
@@ -226,10 +230,27 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
             }
             
         }
-        resultController?.score = score
-        self.navigationController?.pushViewController(resultController!, animated: true)
         
-        print("Success")
+        let alertController = SCLAlertView()
+        if score == 10 {
+            self.showConfetti()
+        
+            
+            alertController.addButton("Replay", target: self, selector: #selector(ViewController.reset))
+            
+            alertController.showSuccess("Your Total Score is", subTitle: "\(score)").setDismissBlock({
+                    self.confettiView.stopConfetti()
+                    self.confettiView.removeFromSuperview()
+            })
+
+        }
+        else{
+            
+            alertController.addButton("Replay", target: self, selector: #selector(ViewController.reset))
+            alertController.showWarning("Your Total Score is", subTitle: "\(score)")
+            
+        }
+       
         
     }
     
@@ -251,8 +272,13 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
 
     }
     
+    //MARK:- Confetti View
+    func showConfetti() {
+        
+        confettiView.type = .Confetti
+        self.view.addSubview(confettiView)
+        confettiView.startConfetti()
+    }
+    
     
 }
-
-
-

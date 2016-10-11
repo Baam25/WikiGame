@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--WikiGame-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WikiGame" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,9 +31,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <state key="normal" title="Categorize"/>
-                                                <connections>
-                                                    <action selector="categorizeWords:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HxG-Xs-37H"/>
-                                                </connections>
                                             </button>
                                             <button contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8b-XN-ktD">
                                                 <rect key="frame" x="497" y="0.0" width="63" height="30"/>
@@ -71,7 +68,7 @@
                             <constraint firstItem="5VO-kN-gDT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="34" id="bBK-5i-Vtb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="KIm-Od-66b"/>
+                    <navigationItem key="navigationItem" title="WikiGame" id="KIm-Od-66b"/>
                     <connections>
                         <outlet property="wikiText" destination="ddX-V4-2W1" id="QWe-9F-AjB"/>
                     </connections>
@@ -186,7 +183,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mHg-iP-nDF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -17,11 +17,15 @@ class ResultViewController: UIViewController {
 
     @IBOutlet weak var scoreLabel: UILabel!
     var score = 0
+    var confettiView:SAConfettiView!
     weak var delegate: RestartWikiGame?
+    var settingsButton : UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        confettiView = SAConfettiView(frame: self.view.bounds)
         checkScores()
+        settingsButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Action, target: self, action: #selector(ResultViewController.showOptions))
+        self.navigationItem.rightBarButtonItem = settingsButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,7 +34,7 @@ class ResultViewController: UIViewController {
     }
     
     func showConfetti() {
-        let confettiView = SAConfettiView(frame: self.view.bounds)
+        
         confettiView.type = .Confetti
         self.view.addSubview(confettiView)
         confettiView.startConfetti()
@@ -41,7 +45,12 @@ class ResultViewController: UIViewController {
         if score == 10 {
             
             scoreLabel.textColor = UIColor(red: 0, green: 128/255, blue: 0, alpha: 1)
-            showConfetti()
+            UIView.animateWithDuration(3.0, animations: {
+                    self.showConfetti()
+                }, completion: { (completed) in
+                    self.confettiView.stopConfetti()
+            })
+            
         }
         else{
             scoreLabel.textColor = UIColor.redColor()
@@ -52,6 +61,22 @@ class ResultViewController: UIViewController {
         
         delegate?.reset()
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func showOptions() {
+        
+        let options = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let showComparision = UIAlertAction(title: "Solutions", style: UIAlertActionStyle.Default) { (action) in
+            
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action) in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+        options.addAction(showComparision)
+        options.addAction(cancel)
+        
+        self.presentViewController(options, animated: true, completion: nil)
     }
     
    

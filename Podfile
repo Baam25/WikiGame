@@ -9,7 +9,7 @@ pod 'NVActivityIndicatorView', :git => 'https://github.com/ninjaprox/NVActivityI
 pod 'Alamofire', '~> 3.5.0'
 pod 'Kanna', '~> 1.1.0'
 pod 'SAConfettiView'
-pod 'M13ProgressSuite', '~> 1.2'
+pod 'SCLAlertView', '~> 0.6'
 
 end
 

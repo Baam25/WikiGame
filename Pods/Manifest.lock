@@ -1,17 +1,17 @@
 PODS:
   - Alamofire (3.5.1)
   - Kanna (1.1.1)
-  - M13ProgressSuite (1.2.8)
   - NVActivityIndicatorView (2.12)
   - SAConfettiView (0.1.8)
+  - SCLAlertView (0.6.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.5.0)
   - Kanna (~> 1.1.0)
-  - M13ProgressSuite (~> 1.2)
   - NVActivityIndicatorView (from `https://github.com/ninjaprox/NVActivityIndicatorView.git`,
     branch `swift2.3`)
   - SAConfettiView
+  - SCLAlertView (~> 0.6)
 
 EXTERNAL SOURCES:
   NVActivityIndicatorView:
@@ -26,8 +26,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
   Kanna: 9d3118cff609bd21eb374be5be590b544941160f
-  M13ProgressSuite: c357c8c163a59a7405e5a9ad7e9c63a19e5e5d20
   NVActivityIndicatorView: de8be03826726ad99cdfacf7fe09e88cbfeef911
   SAConfettiView: c87031a2280659261b730fce3669fb10e73636ee
+  SCLAlertView: 0f6b3c23a48b4993564ff1dd3c065782e4b2b687
 
 COCOAPODS: 0.39.0

@@ -86,14 +86,14 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-WikiGame/Alamofire.framework"
   install_framework "Pods-WikiGame/Kanna.framework"
-  install_framework "Pods-WikiGame/M13ProgressSuite.framework"
   install_framework "Pods-WikiGame/NVActivityIndicatorView.framework"
   install_framework "Pods-WikiGame/SAConfettiView.framework"
+  install_framework "Pods-WikiGame/SCLAlertView.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-WikiGame/Alamofire.framework"
   install_framework "Pods-WikiGame/Kanna.framework"
-  install_framework "Pods-WikiGame/M13ProgressSuite.framework"
   install_framework "Pods-WikiGame/NVActivityIndicatorView.framework"
   install_framework "Pods-WikiGame/SAConfettiView.framework"
+  install_framework "Pods-WikiGame/SCLAlertView.framework"
 fi

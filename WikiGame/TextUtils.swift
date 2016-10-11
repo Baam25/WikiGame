@@ -33,13 +33,6 @@ class TextUtils {
     
     class func lines(textView: UITextView) -> Int {
         
-        //        var lineCount = 0;
-        //        let textSize = CGSizeMake(wikiText.frame.size.width, CGFloat(Float.infinity));
-        //        let rHeight = lroundf(Float(wikiText.sizeThatFits(textSize).height))
-        //        let charSize = lroundf(Float(wikiText.font?.lineHeight ?? 1.0))
-        //        lineCount = rHeight/charSize
-        //        print("No of lines \(lineCount)")
-        //        return lineCount
         var numberOfLines = 0
         var index = 0
         
