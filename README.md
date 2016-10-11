@@ -4,8 +4,20 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* This is a simple Fill-in-the-blanks game made from pulling data from random Wikipedia articles.
+* This is a simple Fill-in-the-blanks game made from pulling data from random Wikipedia articles.![Simulator Screen Shot 11-Oct-2016, 11.46.29 PM.png](https://bitbucket.org/repo/gEnKeq/images/1054637669-Simulator%20Screen%20Shot%2011-Oct-2016,%2011.46.29%20PM.png)
 * v1.0
+
+
+###Screen Shots
+
+![Simulator Screen Shot 11-Oct-2016, 11.45.59 PM.png](https://bitbucket.org/repo/gEnKeq/images/4190293749-Simulator%20Screen%20Shot%2011-Oct-2016,%2011.45.59%20PM.png)
+![Simulator Screen Shot 11-Oct-2016, 11.46.03 PM.png](https://bitbucket.org/repo/gEnKeq/images/1692540078-Simulator%20Screen%20Shot%2011-Oct-2016,%2011.46.03%20PM.png)
+![Simulator Screen Shot 11-Oct-2016, 11.46.31 PM.png](https://bitbucket.org/repo/gEnKeq/images/3819034388-Simulator%20Screen%20Shot%2011-Oct-2016,%2011.46.31%20PM.png)
+![Simulator Screen Shot 11-Oct-2016, 11.45.56 PM.png](https://bitbucket.org/repo/gEnKeq/images/1904221413-Simulator%20Screen%20Shot%2011-Oct-2016,%2011.45.56%20PM.png)
+![Simulator Screen Shot 11-Oct-2016, 11.46.34 PM.png]
+(https://bitbucket.org/repo/gEnKeq/images/3309864964-Simulator%20Screen%20Shot%2011-Oct-2016,%2011.46.34%20PM.png)
+![Simulator Screen Shot 11-Oct-2016, 11.46.37 PM.png](https://bitbucket.org/repo/gEnKeq/images/4280752722-Simulator%20Screen%20Shot%2011-Oct-2016,%2011.46.37%20PM.png)
+
 
 ### How do I get set up? ###
 
