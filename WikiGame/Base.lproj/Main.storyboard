@@ -21,32 +21,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="5VO-kN-gDT">
                                 <rect key="frame" x="20" y="98" width="560" height="485"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="434" translatesAutoresizingMaskIntoConstraints="NO" id="Gso-ji-Drz">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
-                                        <subviews>
-                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XOO-9r-zg3">
-                                                <rect key="frame" x="0.0" y="0.0" width="63" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="61" id="bi0-i2-JP3"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                <state key="normal" title="Categorize"/>
-                                            </button>
-                                            <button contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8b-XN-ktD">
-                                                <rect key="frame" x="497" y="0.0" width="63" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="47" id="YLQ-Ad-PXY"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="submit"/>
-                                                <connections>
-                                                    <action selector="submitAnswers:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mxt-Ro-pTQ"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="ddX-V4-2W1">
-                                        <rect key="frame" x="0.0" y="80" width="560" height="405"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="485"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
@@ -54,9 +30,8 @@
                                     </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Gso-ji-Drz" firstAttribute="leading" secondItem="5VO-kN-gDT" secondAttribute="leading" id="Dq1-QK-lJs"/>
-                                    <constraint firstAttribute="trailing" secondItem="ddX-V4-2W1" secondAttribute="trailing" id="a0V-R1-myY"/>
-                                    <constraint firstItem="ddX-V4-2W1" firstAttribute="leading" secondItem="5VO-kN-gDT" secondAttribute="leading" id="a14-wW-QuM"/>
+                                    <constraint firstAttribute="trailing" secondItem="ddX-V4-2W1" secondAttribute="trailing" id="GLV-Nq-pLy"/>
+                                    <constraint firstItem="ddX-V4-2W1" firstAttribute="leading" secondItem="5VO-kN-gDT" secondAttribute="leading" id="tWZ-fB-fGB"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -68,7 +43,13 @@
                             <constraint firstItem="5VO-kN-gDT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="34" id="bBK-5i-Vtb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="WikiGame" id="KIm-Od-66b"/>
+                    <navigationItem key="navigationItem" title="WikiGame" id="KIm-Od-66b">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="xCl-Es-j0l">
+                            <connections>
+                                <action selector="submitAnswers:" destination="BYZ-38-t0r" id="NYP-t3-moB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="wikiText" destination="ddX-V4-2W1" id="QWe-9F-AjB"/>
                     </connections>

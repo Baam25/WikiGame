@@ -23,7 +23,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
     var prev = ""
     var selectedButton: UIButton?
     var shuffledOptions = [""]
-    
+    var originalTex = ""
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -59,7 +59,9 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
             //Logic to check for minimum lines and fetch more data if less
             if let str = (self.generator?.next()?.text) {
                 self.tex = str
-                self.wikiText.text = self.tex.stringByReplacingOccurrencesOfString("\n", withString: " ")
+                self.originalTex = self.tex.stringByReplacingOccurrencesOfString("\n", withString: " ")
+
+                self.wikiText.text = self.originalTex
                 self.wikiText.hidden = false
                 self.fill(self.tex, gen: self.generator)
                 
@@ -89,6 +91,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
                 }
                 else{
                     self.tex = self.tex + "\n" + (next!.stringByReplacingOccurrencesOfString("\n", withString: " "))
+                    self.originalTex = self.tex
                 }
                 
             }
@@ -97,7 +100,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
                 return
             }
             self.wikiText.text = self.tex
-            fill(tex, gen: gen)
+            fill(self.tex, gen: gen)
         }
         else{
             categorizeWords()
@@ -106,8 +109,9 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
     
     //MARK:- Function to handle rotation of device
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        
-        fill(self.tex, gen: self.generator)
+        wikiText.text = originalTex
+        tex = originalTex
+        fill(tex, gen: self.generator)
         self.wikiText.hidden = false
         
     }

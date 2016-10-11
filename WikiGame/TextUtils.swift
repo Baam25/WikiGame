@@ -41,6 +41,7 @@ class TextUtils {
         
         let layoutManager = textView.layoutManager
         var lineRange : NSRange = NSMakeRange(0, 0)
+        
         for (; index < layoutManager.numberOfGlyphs; numberOfLines += 1) {
             layoutManager.lineFragmentRectForGlyphAtIndex(index, effectiveRange: &lineRange)
             
