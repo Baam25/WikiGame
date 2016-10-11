@@ -48,7 +48,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
     
     func retrieveWiki() {
         
-        startAnimating(CGSize(width: 40,height: 40), message: "Loading", type: .CubeTransition, color: UIColor.cyanColor(), padding: 0, displayTimeThreshold: 0, minimumDisplayTime: 0)
+        startAnimating(CGSize(width: 40,height: 40), message: "Loading", type: .LineScale, color: UIColor.cyanColor() , padding: 0, displayTimeThreshold: 0, minimumDisplayTime: 0)
         
         self.wikiText.hidden = true
         
@@ -293,6 +293,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
     //MARK:- Resetting the game
     func reset() {
         
+        submitButton.enabled = true
         retrieveWiki()
         tex = ""
         grammer = [String:String]()
@@ -311,7 +312,7 @@ class ViewController: UIViewController, NVActivityIndicatorViewable, answerSelec
     }
     
     func evaluate() {
-        
+        submitButton.enabled = true
         isEvaluationMode = true
         submitButton.title = "Show Answers"
         for i in 0..<keyWords.count {
